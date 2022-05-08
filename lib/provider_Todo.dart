@@ -11,6 +11,8 @@ class ProviderTodo extends ChangeNotifier {
       text: text.text,
       title: title.text,
     ));
+    title.clear();
+    text.clear();
     notifyListeners();
     Navigator.pop(context);
 
