@@ -31,7 +31,8 @@ class AddTodo extends StatelessWidget {
               color: Colors.blue,
             ),
             onPressed: () {
-              context.read<ProviderTodo>().addTodo(context);
+              // context.read<ProviderTodo>().addTodo(context);
+              Provider.of<ProviderTodo>(context,listen: false).addTodo(context);
             },
           )
         ]),
