@@ -32,7 +32,6 @@ class AddTodo extends StatelessWidget {
             ),
             onPressed: () {
               context.read<ProviderTodo>().addTodo(context);
-              print(context.watch<ProviderTodo>().todos.length);
             },
           )
         ]),
