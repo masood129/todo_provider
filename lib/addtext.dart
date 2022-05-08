@@ -9,7 +9,7 @@ class AddTodo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo List'),
+        title: Text('Todo L!st'),
       ),
       body: Container(
         child: Column(children: <Widget>[
