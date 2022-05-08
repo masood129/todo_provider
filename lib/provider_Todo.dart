@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:todo_provider/model.dart';
 
 class ProviderTodo extends ChangeNotifier {
@@ -15,5 +18,16 @@ class ProviderTodo extends ChangeNotifier {
     text.clear();
     notifyListeners();
     Navigator.pop(context);
+    // var box = Hive.box('myBox');
+    // box.put('todolist', 'mamad');
+    // print(box.get('todolist'));
+  }
+
+  void save() {
+    // box.put("todolist", jsonEncode(todos));
+  }
+
+  void changeLanguege(Locale value) {
+    notifyListeners();
   }
 }

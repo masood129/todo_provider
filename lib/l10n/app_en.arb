@@ -1,0 +1,6 @@
+{
+    "todo": "Todo Application",
+    "@todo": {
+      "description": "TODOAPP_DESCRIPTION"
+    }
+}
