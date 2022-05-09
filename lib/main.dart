@@ -2,17 +2,18 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_provider/provider_Todo.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo_provider/todomodel.dart';
 import 'addtext.dart';
 
+late Box mainBox;
 Future<void> main() async {
-  // Directory directory = await getTemporaryDirectory();
-  // Hive.init(directory.path);
-  // Hive.init(directory.path);
+  await Hive.initFlutter();
+  Hive.registerAdapter(TodoModelAdapter());
+  mainBox = await Hive.openBox('todos');
   runApp(
     ChangeNotifierProvider<ProviderTodo>(
       create: (_) => ProviderTodo(),

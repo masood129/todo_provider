@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:todo_provider/model.dart';
+import 'package:todo_provider/todomodel.dart';
+
+import 'main.dart';
 
 class ProviderTodo extends ChangeNotifier {
   final List<TodoModel> todos = [];
@@ -11,20 +13,21 @@ class ProviderTodo extends ChangeNotifier {
 
   void addTodo(context) {
     todos.add(TodoModel(
-      text: text.text,
-      title: title.text,
+      title.text,
+      text.text,
     ));
     title.clear();
     text.clear();
+    save();
     notifyListeners();
     Navigator.pop(context);
-    // var box = Hive.box('myBox');
-    // box.put('todolist', 'mamad');
-    // print(box.get('todolist'));
   }
 
+  var todoBox = Hive.box('todos');
   void save() {
-    // box.put("todolist", jsonEncode(todos));
+    todoBox.put("todolist", todos);
+    List<TodoModel> a = todoBox.get("todolist");
+    print(a.length);
   }
 
   void changeLanguege(Locale value) {
